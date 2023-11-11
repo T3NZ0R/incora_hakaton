@@ -53,7 +53,7 @@ const LoginForm:FC<{switchForm:any}> = ({ switchForm }) => {
       </Button>
       <Typography variant="body2" style={{ marginTop: '10px' }}>
         Don't have an account?{' '}
-        <Link href="#" onClick={() => switchForm('register')}>
+        <Link href="components/LoginForm#" onClick={() => switchForm('register')}>
           Register here
         </Link>
       </Typography>

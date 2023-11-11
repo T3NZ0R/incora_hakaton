@@ -1,7 +1,7 @@
 import { Grid, InputAdornment, TextField } from "@mui/material"
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Donate from "./components/Donate";
+import Donate from "../../components/Donate";
 import SearchIcon from '@mui/icons-material/Search';
 export interface ImockData{
 	id: string,
@@ -11,15 +11,15 @@ export interface ImockData{
 	link: string,
 }
 
-const mockData:ImockData[] = [ 
-	{	
+const mockData:ImockData[] = [
+	{
 		id: '1',
 		link: 'sdjfsjfdj',
 		title: 'sjhjfhfjs',
 		description: 'fkjskjdfkjsdklsdkjfdjhdfj jfdji shfjsdkjsd jkhjsdh isfh hsfhsf',
 		img: 'https://static.dw.com/image/51802658_605.jpg',
 	},
-	{	
+	{
 		id: '2',
 		link: 'sdjfsjfdj',
 		title: 'sjhjfhfjs',
@@ -27,7 +27,7 @@ const mockData:ImockData[] = [
 
 		img: 'https://static.dw.com/image/51802658_605.jpg',
 	},
-	{	
+	{
 		id: '3',
 		link: 'sdjfsjfdj',
 		title: 'sjhjfhfjs',
@@ -39,10 +39,6 @@ const mockData:ImockData[] = [
 
 
 const Donations = () => {
-
-	const {t} = useTranslation();
-
-	
 
 	const [filterName, setFilterName] = useState('');
 

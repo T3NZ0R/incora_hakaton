@@ -10,7 +10,7 @@ const validationSchemaRegister = yup.object({
   });
 
 const RegisterForm:FC<{switchForm:any}> = ({ switchForm }) => {
-	
+
 	const formik = useFormik({
 	  initialValues: {
 		email: '',
@@ -23,7 +23,7 @@ const RegisterForm:FC<{switchForm:any}> = ({ switchForm }) => {
 		console.log('Registration form submitted with values:', values);
 	  },
 	});
-  
+
 	return (
 	  <form onSubmit={formik.handleSubmit}>
 		<TextField
@@ -69,7 +69,7 @@ const RegisterForm:FC<{switchForm:any}> = ({ switchForm }) => {
 		</Button>
 		<Typography variant="body2" style={{ marginTop: '10px' }}>
 		  Already have an account?{' '}
-		  <Link href="#" onClick={() => switchForm('login')}>
+		  <Link href="components/RegisterForm#" onClick={() => switchForm('login')}>
 			Login here
 		  </Link>
 		</Typography>
