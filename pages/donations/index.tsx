@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Donate from "./components/Donate";
 import SearchIcon from '@mui/icons-material/Search';
 export interface ImockData{
+	id: string,
 	img: string,
 	title: string,
 	description: string,
@@ -12,12 +13,14 @@ export interface ImockData{
 
 const mockData:ImockData[] = [ 
 	{	
+		id: '1',
 		link: 'sdjfsjfdj',
 		title: 'sjhjfhfjs',
 		description: 'fkjskjdfkjsdklsdkjfdjhdfj jfdji shfjsdkjsd jkhjsdh isfh hsfhsf',
 		img: 'https://static.dw.com/image/51802658_605.jpg',
 	},
 	{	
+		id: '2',
 		link: 'sdjfsjfdj',
 		title: 'sjhjfhfjs',
 		description: 'fkjskjdfkjsdklsdkjfdjhdfj jfdji shfjsdkjsd jkhjsdh isfh hsfhsf',
@@ -25,6 +28,7 @@ const mockData:ImockData[] = [
 		img: 'https://static.dw.com/image/51802658_605.jpg',
 	},
 	{	
+		id: '3',
 		link: 'sdjfsjfdj',
 		title: 'sjhjfhfjs',
 		description: 'fkjskjdfkjsdklsdkjfdjhdfj jfdji shfjsdkjsd jkhjsdh isfh hsfhsf',
