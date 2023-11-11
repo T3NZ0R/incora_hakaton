@@ -1,10 +1,11 @@
 {
   "Home": "Головна",
   "Donation": "Збори",
-  "About us": "Про нас",
+  "AboutUs": "Про нас",
   "Profile": "Профіль",
   "Logout": "Вийти",
-  "ChangeLanguage": "Змінити мову",
   "Ukrainian": "Українська",
-  "English": "Англійська"
+  "English": "Англійська",
+  "OpenSettings": "Відкрити налаштування",
+  "ChangeLanguage": "Змінити мову"
 }
