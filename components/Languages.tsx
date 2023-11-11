@@ -10,9 +10,16 @@ import { useTranslation } from 'next-i18next'
 
 
 
-const Languages= ({clientSideLanguageChange}) => {
+const Languages= () => {
 
     const {t} = useTranslation("header")
+
+    const {i18n} = useTranslation('header')
+
+     const clientSideLanguageChange = (newLocale: string) => {
+        i18n.changeLanguage(newLocale);
+
+    }
 
     const languages = [{language:t('Ukrainian'), locale: "uk"}, {language:t('English'), locale: "en"} ];
 

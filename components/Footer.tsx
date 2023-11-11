@@ -1,10 +1,27 @@
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { useState, type FC } from 'react'
+import {useTranslation} from "next-i18next";
 
 export const Footer: FC = () => {
 
+  const {t} = useTranslation("header")
+
+
+  const pages = [
+    {
+      name: t('Home'),
+      path: '/'
+    },
+    {
+      name: t('Donation'),
+      path: 'donations'
+    },
+    {
+      name: t('AboutUs'),
+      path: '/'
+    }];
   const [value,setValue] = useState<string|undefined>(undefined);
-  
+
   return (
     <footer>
 
@@ -16,16 +33,14 @@ export const Footer: FC = () => {
       }}
       sx={{
         height:"80px",
-        position: 'fixed',
-        bottom: 0,
         width: '100%',
+        marginTop: "120px",
         backgroundColor: 'black',
       }}
     >
 
-      <BottomNavigationAction label="contact us" sx={{color:"white"}}/>
-      <BottomNavigationAction label="About us" sx={{color:"white"}}/>
-      <BottomNavigationAction label="Home" sx={{color:"white"}}/>
+      {pages.map((page, index)=><BottomNavigationAction key={index} label={page.name} href={page.path} sx={{color: "white"}}/>)}
+
 
     </BottomNavigation>
 
