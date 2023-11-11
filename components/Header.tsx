@@ -14,12 +14,25 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Languages from "./Languages";
 import Profile from "./Profile";
 import {useTranslation} from "next-i18next";
+import Link from "next/link";
 
-const Header = ({clientSideLanguageChange}) =>{
+const Header = () => {
     const {t} = useTranslation("header")
 
 
-    const pages = [t('Home'), t('Donation'), t('AboutUs')];
+    const pages = [
+        {
+            name: t('Home'),
+            path: '/'
+        },
+        {
+            name: t('Donation'),
+            path: 'donations'
+        },
+        {
+            name: t('AboutUs'),
+            path: '/'
+        }];
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -30,7 +43,7 @@ const Header = ({clientSideLanguageChange}) =>{
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
@@ -81,9 +94,9 @@ const Header = ({clientSideLanguageChange}) =>{
                                 display: {xs: 'block', md: 'none'},
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                            {pages.map((page, index) => (
+                                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center"><Link href={page.path}>{page.name}</Link></Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -108,17 +121,17 @@ const Header = ({clientSideLanguageChange}) =>{
                         LOGO
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                        {pages.map((page) => (
+                        {pages.map((page, index) => (
                             <Button
-                                key={page}
+                                key={ index}
                                 onClick={handleCloseNavMenu}
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
-                                {page}
+                                <Link href={page.path}>{page.name}</Link>
                             </Button>
                         ))}
                     </Box>
-                    <Languages clientSideLanguageChange={clientSideLanguageChange}/>
+                    <Languages/>
                     <Profile/>
 
                 </Toolbar>

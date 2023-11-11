@@ -1,5 +1,5 @@
-import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material"
-import { ImockData } from ".."
+import { Button, Card, CardMedia, Grid, Typography } from "@mui/material"
+import { ImockData } from "../pages/donations"
 import { FC } from "react"
 import { useRouter } from "next/router"
 
@@ -29,7 +29,7 @@ const Donate:FC<IDonateProps> = ({item}) => {
 				/>
 			</Card>
 
-			<Grid 
+			<Grid
 				sx={{
 					padding: '0 30px'
 				}}
