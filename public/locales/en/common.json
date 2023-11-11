@@ -1,1 +1,10 @@
-{}
+{
+  "Home": "Home",
+  "Donation": "Donations",
+  "About us": "About us",
+  "Profile": "Profile",
+  "Logout": "Log out",
+  "ChangeLanguage": "Change Language",
+  "Ukrainian": "Ukrainian",
+  "English": "English"
+}

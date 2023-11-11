@@ -1,8 +1,8 @@
-import common from 'public/locales/en/common.json';
-import footer from 'public/locales/en/footer.json';
+import header from 'public/locales/uk/header.json';
+import footer from 'public/locales/uk/footer.json';
 
 const resources = {
-  common,
+  header,
   footer,
 } as const;
 
