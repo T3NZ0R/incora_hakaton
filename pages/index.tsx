@@ -6,6 +6,8 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
 import Header from '../components/Header'
 import {Footer} from '../components/Footer'
+import SwiperSlice from './components/SwiperSlice'
+import { Grid } from '@mui/material'
 
 type Props = {
     // Add custom props here
@@ -29,7 +31,13 @@ const Homepage = (
         <>
             <Header clientSideLanguageChange={clientSideLanguageChange}/>
             <main>
-
+              <Grid sx={{
+                padding:"20vh 0",
+                border:'1px solid black',
+                display:'flex',
+              }}>
+                <SwiperSlice/>
+              </Grid>
             </main>
             <Footer/>
         </>
