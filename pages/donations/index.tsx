@@ -83,7 +83,7 @@ const Donations = () => {
 				gap:'20px',
 				flexDirection:'column'
 			}}>
-				{mockData?.length && mockData.map((item: ImockData) => (<Donate item={item}/>))}
+				{mockData?.length && mockData.map((item: ImockData, index) => (<Donate key={index} item={item}/>))}
 			</Grid>
 		</Grid>
 	)

@@ -7,11 +7,12 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import {useTranslation} from "next-i18next";
+import Link from "next/link";
 
 const Profile = () => {
-    const {t} = useTranslation("header")
+    const {i18n, t} = useTranslation("header")
 
-    const settings = [t('Profile'), t('Logout')];
+    const settings = [{name:t('Profile'), path:'/login'}, {name:t('Logout'), path:'/'}];
 
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -49,8 +50,8 @@ const Profile = () => {
                     onClose={handleCloseUserMenu}
                 >
                     {settings.map((setting) => (
-                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
+                        <MenuItem key={setting.path} onClick={handleCloseUserMenu}>
+                            <Typography textAlign="center"><Link href={setting.path} locale={i18n.language}>{setting.name}</Link></Typography>
                         </MenuItem>
                     ))}
                 </Menu>
