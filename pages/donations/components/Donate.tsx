@@ -1,12 +1,15 @@
 import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material"
 import { ImockData } from ".."
 import { FC } from "react"
+import { useRouter } from "next/router"
 
 export interface IDonateProps{
 	item:ImockData
 }
 
 const Donate:FC<IDonateProps> = ({item}) => {
+	const router = useRouter()
+
 	return (
 		<Grid sx={{
 			margin:'0 auto',
@@ -37,7 +40,7 @@ const Donate:FC<IDonateProps> = ({item}) => {
 				<Grid>
 					{item.description}
 				</Grid>
-				<Button variant={'contained'}
+				<Button variant={'contained'} onClick={() => router.push(`/donations/${item.id}`)}
 				>
 					{item.link}
 				</Button>
