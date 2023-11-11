@@ -17,7 +17,7 @@ import {useTranslation} from "next-i18next";
 import Link from "next/link";
 
 const Header = () => {
-    const {t} = useTranslation("header")
+    const {i18n, t} = useTranslation("header");
 
 
     const pages = [
@@ -96,7 +96,7 @@ const Header = () => {
                         >
                             {pages.map((page, index) => (
                                 <MenuItem key={index} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center"><Link href={page.path}>{page.name}</Link></Typography>
+                                    <Typography textAlign="center"><Link href={page.path} locale={i18n.language}>{page.name}</Link></Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -127,7 +127,7 @@ const Header = () => {
                                 onClick={handleCloseNavMenu}
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
-                                <Link href={page.path}>{page.name}</Link>
+                                <Link href={page.path} locale={i18n.language}>{page.name}</Link>
                             </Button>
                         ))}
                     </Box>

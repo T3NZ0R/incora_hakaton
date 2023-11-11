@@ -13,9 +13,8 @@ class MyDocument extends Document<Props> {
             i18nextConfig.i18n.defaultLocale
         return (
             <Html lang={currentLocale}>
-
+                <Head />
                 <body>
-                <Head><title>qwqwqw</title></Head>
                 <Main/>
                 <NextScript/>
                 </body>

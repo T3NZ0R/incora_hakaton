@@ -5,7 +5,7 @@ import {useTranslation} from 'next-i18next'
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
 import {useEffect} from "react";
-import SwiperSlice from './components/SwiperSlice'
+import SwiperSlice from '../components/SwiperSlice'
 import { Grid } from '@mui/material'
 
 
@@ -17,25 +17,20 @@ const Homepage = (
     _props: InferGetStaticPropsType<typeof getStaticProps>
 ) => {
 
-    const router = useRouter()
-    const {i18n} = useTranslation()
-    useEffect(()=>{
-        const {pathname, asPath, query} = router;
-        router.push({pathname, query}, asPath, {locale: i18n.language})
-    }, [i18n.language])
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+
 
 
     return (
         <>
             <main>
-              <Grid sx={{
-                padding:"20vh 0",
-                border:'1px solid black',
-                display:'flex',
-              }}>
-                <SwiperSlice/>
-              </Grid>
+              {/*<Grid sx={{*/}
+              {/*  padding:"20vh 0",*/}
+              {/*  border:'1px solid black',*/}
+              {/*  display:'flex',*/}
+              {/*}}>*/}
+              {/*  <SwiperSlice/>*/}
+              {/*</Grid>*/}
             </main>
         </>
     )
@@ -46,8 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
                                                                 locale,
                                                             }) => ({
     props: {
-        ...(await serverSideTranslations(locale ?? 'en', [
-            'common',
+        ...(await serverSideTranslations(locale ?? 'uk', [
             'header',
             'footer',
         ])),

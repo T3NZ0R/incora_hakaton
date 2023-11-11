@@ -1,4 +1,3 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -33,7 +32,7 @@ const SwiperSlice = () => {
     modules={[Navigation, Pagination, Scrollbar, A11y]}
     spaceBetween={50}
     slidesPerView={2}
-    
+
     navigation
     pagination={{ clickable: true }}
     loop
@@ -45,8 +44,8 @@ const SwiperSlice = () => {
       <SwiperSlide key={slide.id}
       >
         <div style={{ position: 'relative', width: '100%', height: '500px' }}>
-            <img 
-            style={{ width: '100%', height: '100%', objectFit: 'cover', opacity:'0.5',cursor:'pointer' }} 
+            <img
+            style={{ width: '100%', height: '100%', objectFit: 'cover', opacity:'0.5',cursor:'pointer' }}
             onMouseOver={(e) => {
               e.currentTarget.style.opacity = '1';
             }}
@@ -80,7 +79,7 @@ const SwiperSlice = () => {
                 e.currentTarget.style.opacity = '1';
               }}
 
-              
+
             >
               {slide.text}
             </div>

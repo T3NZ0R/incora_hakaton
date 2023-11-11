@@ -1,15 +1,20 @@
 import React, { FC } from 'react';
-import { TextField, Button, Typography, Link } from '@mui/material';
+import { TextField, Button, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import {router} from "next/client";
+import {useTranslation} from "next-i18next";
+import Link from "next/link";
 
 const validationSchemaLogin = yup.object({
   email: yup.string().email('Invalid email address').required('Email is required'),
   password: yup.string().required('Password is required'),
 });
 
-const LoginForm:FC<{switchForm:any}> = ({ switchForm }) => {
-  const formik = useFormik({
+const LoginForm:FC = () => {
+    const {i18n} = useTranslation("header");
+
+    const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -53,7 +58,7 @@ const LoginForm:FC<{switchForm:any}> = ({ switchForm }) => {
       </Button>
       <Typography variant="body2" style={{ marginTop: '10px' }}>
         Don't have an account?{' '}
-        <Link href="components/LoginForm#" onClick={() => switchForm('register')}>
+        <Link href="/register" locale={i18n.language}>
           Register here
         </Link>
       </Typography>

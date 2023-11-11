@@ -9,19 +9,18 @@ import Typography from "@mui/material/Typography";
 import { useTranslation } from 'next-i18next'
 
 
-
 const Languages= () => {
 
     const {t} = useTranslation("header")
+    const languages = [{language:t('Ukrainian'), locale: "uk"}, {language:t('English'), locale: "en"} ];
 
     const {i18n} = useTranslation('header')
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
      const clientSideLanguageChange = (newLocale: string) => {
         i18n.changeLanguage(newLocale);
-
     }
 
-    const languages = [{language:t('Ukrainian'), locale: "uk"}, {language:t('English'), locale: "en"} ];
 
     const [anchorElUser, setAnchorElUser] =useState<null | HTMLElement>(null);
 
