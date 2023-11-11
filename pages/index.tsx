@@ -5,6 +5,9 @@ import {useTranslation} from 'next-i18next'
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
 import {useEffect} from "react";
+import SwiperSlice from './components/SwiperSlice'
+import { Grid } from '@mui/material'
+
 
 type Props = {
     // Add custom props here
@@ -26,7 +29,13 @@ const Homepage = (
     return (
         <>
             <main>
-
+              <Grid sx={{
+                padding:"20vh 0",
+                border:'1px solid black',
+                display:'flex',
+              }}>
+                <SwiperSlice/>
+              </Grid>
             </main>
         </>
     )
