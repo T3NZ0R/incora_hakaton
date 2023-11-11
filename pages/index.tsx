@@ -14,6 +14,7 @@ type Props = {
 const Homepage = (
     _props: InferGetStaticPropsType<typeof getStaticProps>
 ) => {
+
     const router = useRouter()
     const {i18n} = useTranslation('header')
 
