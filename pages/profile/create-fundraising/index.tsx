@@ -1,9 +1,13 @@
 import React, { useState, ChangeEvent } from 'react';
-import { Button, Grid, Stack } from '@mui/material';
+import { Button, Grid, Stack, TextField } from '@mui/material';
 
 const Index: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>('');
+  const [link, setLink] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [sum, setSum] = useState<number | undefined>(undefined);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -20,19 +24,53 @@ const Index: React.FC = () => {
   };
 
   return (
-    <Grid 
-    sx={{
-        border:"1px solid black",
-        margin:"0 30%",
-    }}>
-        <Grid>
-            
-        </Grid>
-      <Stack direction="row" alignItems="center" spacing={2}>
+    <Grid
+      container
+      display={"flex"}
+      flexDirection={"column"}
+      // alignItems={"center"}
+      justifyContent={"center"}
+      sx={{
+        width: "50%",
+        margin: '0 25%',
+        padding: '20px',
+      }}
+    >
+      <Stack spacing={2}>
+        <TextField
+          label="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <TextField
+          label="Link for QR Code"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
+        />
+        <TextField
+          label="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          multiline
+          minRows={4}
+          sx={{ width: '100%', minHeight: '100px' }}
+        />
+        <TextField
+          label="Sum"
+          type="number"
+          value={sum === undefined ? '' : sum}
+          onChange={(e) => setSum(Number(e.target.value))}
+        />
+      </Stack>
+      <Grid 
+        sx={{
+          marginTop:'35px',
+          display:"flex",
+          flexDirection:'column  '
+          
+        }}
+      >
         <label htmlFor="upload-input">
-          <Button variant="contained" component="span">
-            Upload
-          </Button>
           <input
             id="upload-input"
             hidden
@@ -41,17 +79,35 @@ const Index: React.FC = () => {
             type="file"
             onChange={handleFileChange}
           />
+          <Button variant="contained" component="span"
+          sx={{
+            maxWidth:'100px'
+          }}
+        >
+            Upload
+          </Button>
         </label>
+        
         {loading ? (
           <span>Loading...</span>
         ) : selectedFile ? (
           <img
             src={selectedFile}
             alt="Preview"
-            style={{ width: '100px', height: '100px', marginLeft: '10px' }}
+            style={{ width: '100px', height: '100px', marginTop: '10px' }}
           />
+          
         ) : null}
-      </Stack>
+        
+     
+      </Grid>
+      <Button
+      variant='contained'
+      sx={{margin:'30px 0'}}
+      >
+        Create
+      </Button>
+     
     </Grid>
   );
 };
